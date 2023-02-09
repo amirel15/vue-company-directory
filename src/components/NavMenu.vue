@@ -12,7 +12,7 @@ const brand = ref("🏢 Company's Fake Directory")
       <div class="menu">
         <a href="#" class="menu-item">Departments</a>
         <a href="#" class="menu-item">Settings</a>
-        <a href="#" class="menu-login">Log Out</a>
+        <a href="#" class="menu-login">LogOut</a>
       </div>
     </div>
   </nav>
