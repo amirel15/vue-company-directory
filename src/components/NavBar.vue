@@ -1,5 +1,8 @@
 <script setup>
 import { ref } from 'vue'
+import { useAuth } from '@/composables/useAuth'
+
+const {isAuthenticated} = useAuth()
 const brand = ref("🏢 Company's Fake Directory 🏢")
 </script>
 
@@ -10,9 +13,14 @@ const brand = ref("🏢 Company's Fake Directory 🏢")
         <span class="brand-title">{{ brand }}</span>
       </RouterLink>
       <div class="menu">
-        <a href="#" class="menu-item">Departments</a>
-        <a href="#" class="menu-item">Settings</a>
-        <a href="#" class="menu-logout">LogOut</a>
+        <RouterLink :to="{name: 'Home'}" href="#" class="menu-item">Departments</RouterLink>
+        <div v-if="auth.isAuthenticated">
+          <RouterLink :to="{name: 'Home'}" href="#" class="menu-item">Settings</RouterLink>
+          <RouterLink :to="{name: 'Home'}" href="#" class="menu-logout">Logout</RouterLink>  
+        </div>
+        <div v-else>
+          <RouterLink :to="{name: 'Home'}" href="#" class="menu-login">Login</RouterLink>
+        </div>
       </div>
     </div>
   </nav>
@@ -30,11 +38,17 @@ nav {
     }
     .menu{
       @apply flex gap-5;
+      div {
+        @apply py-2;
+      }
       &-item{
         @apply rounded-md px-3 py-1.5 hover:bg-blue-300 hover:text-slate-800;
       }
       &-logout{
-        @apply rounded-md bg-sky-100 text-slate-900 px-3 py-1.5 hover:bg-red-800 hover:text-slate-100;
+        @apply rounded-md bg-green-300 text-slate-900 px-3 py-1.5 hover:bg-green-800 hover:text-slate-100;
+      }
+      &-logout{
+        @apply rounded-md bg-red-300 text-slate-900 px-4 py-1.5 hover:bg-red-800 hover:text-slate-100;
       }
     }
   }
