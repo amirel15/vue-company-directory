@@ -1,6 +1,6 @@
 import { ref } from 'vue'
 
-const DBUSers = [
+const dbUsers = [
     {
         username: 'admin',
         password: 'admin',
@@ -9,8 +9,8 @@ const DBUSers = [
         email: 'admin@company4reals.com',
     },
     {
-        username: 'user1',
-        password: 'user1',
+        username: 'user',
+        password: 'user',
         name: 'User One',
         role: 'user',
         email: 'user1@company4reals.com'
@@ -22,12 +22,19 @@ const user = ref({})
 
 export const useAuth = () => {
     const login = (username, password) => {
-        const DBUser = DBUser.find((u) => u.username === username && u.password === password)
-        if (DBUser) {
-            const { name, role, email, username } = DBUser
+        const dbUser = dbUsers.find((u) => u.username === username && u.password === password)
+        if (dbUser) {
+            const { name, role, email, username } = dbUser
             isAuthenicated.value = true
             user.value = { name, role, email, username }
+            return true
         }
+        return false
     }
-    return {isAuthenicated, user, login}
+
+    const logout = () => {
+        isAuthenicated.value = false
+        user.value = {}
+    }
+    return {isAuthenicated, user, login, logout}
 }
