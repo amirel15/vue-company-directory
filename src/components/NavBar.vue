@@ -4,7 +4,7 @@ import { useAuth } from '@/composables/useAuth'
 
 const { isAuthenticated, logout, user } = useAuth()
 
-const brand = ref("🏢 Company's Fake Directory 🏢")
+const brand = ref("🏢 Company's Fake Directory 🏢" )
 </script>
 
 <template>
@@ -14,10 +14,10 @@ const brand = ref("🏢 Company's Fake Directory 🏢")
         <span class="brand-title">{{ brand }}</span>
       </RouterLink>
       <div class="menu">
-        <p v-show="isAuthenticated" class="px-2 py-4">
-          Welcome Back
+        <p v-show="isAuthenticated" class="px-1.5 py-3 text-xl text-purple-300">
+          Welcome Back,
           <strong>
-            <i>{{ user.name }}</i></strong
+            <i>{{ user.name }}!</i></strong
           >
         </p>
         <div v-if="isAuthenticated">
