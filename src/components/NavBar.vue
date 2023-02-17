@@ -51,7 +51,7 @@ nav {
         @apply rounded-md px-3 py-1.5 hover:bg-blue-300 hover:text-slate-800;
       }
       &-login {
-        @apply rounded-md bg-green-300 px-3 py-1.5 text-slate-900 hover:bg-green-800 hover:text-slate-100;
+        @apply rounded-md bg-green-400 px-3 py-1.5 text-slate-700 hover:bg-green-800 hover:text-slate-100;
       }
       &-logout {
         @apply mx-2 rounded-md bg-red-300 px-4 py-1.5 text-slate-900 hover:bg-red-800 hover:text-slate-100;
