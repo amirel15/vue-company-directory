@@ -33,8 +33,8 @@ const getDepartment = async (departmentId) => {
   return data
 }
 
-const useAPI = () => {
+const useApi = () => {
   return { employees, pages, activePage, loading, pageSize, getEmployees, getDepartment }
 }
 
-export default useAPI
+export default useApi
